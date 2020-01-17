@@ -2,10 +2,10 @@ var http = require('http');
 var fs = require('fs');
 var app = http.createServer(function(request,response){
     var url = request.url;
-    if(request.url == '/'){
+    if(url == '/'){
       url = '/index.html';
     }
-    if(request.url == '/favicon.ico'){
+    if(url == '/favicon.ico'){
       return response.writeHead(404);
     }
     response.writeHead(200);
@@ -13,4 +13,5 @@ var app = http.createServer(function(request,response){
     response.end(fs.readFileSync(__dirname + url));
     
 });
+//3000번 포트 사용.
 app.listen(3000);
